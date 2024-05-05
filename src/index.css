@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: clip;
-  position: fixed;
+  position: static;
   top: 0;
   bottom: 0;
 }

@@ -34,165 +34,89 @@ const normFile = (e) => {
 };
 
 const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+
+    let number = Number(values.color) + Number(values.gender)+ Number(100 * values.switch)
+
+    switch(number){
+    case 11:
+        console.log('Голодные игры');
+    break;
+    case 12:
+        console.log('Посвященый');
+    break;
+    case 13:
+        console.log('Эквиллибриум');
+    break;
+    case 21:
+        console.log('Пятая волна');
+    break;
+    case 22:
+        console.log('Бегущий в лабиринте');
+    break;
+    case 23:
+        console.log('Поколение Вояджер');
+    break;
+    case 111:
+        console.log('Дивергент');
+    break;
+    case 112:
+        console.log('Шрек');
+    break;
+    case 113:
+        console.log('Бегущий по лезвию 2049');
+    break;
+    case 121:
+        console.log('Голодные игры');
+    break;
+    case 122:
+        console.log('Шрек');
+    break;
+    case 123:
+        console.log('Эквилибриум');
+    break;
+    }
 };
 
 const FormPage = () => (
     <div className='flex-column'>
-        <span className="w-full flex justify-center align-center mb-3" style={{fontSize: '18px', color: 'white'}}>Пожалуйста ответьте на форму</span>    
+        <span className="w-full flex justify-center align-center mb-3" style={{ fontSize: '18px', color: 'white' }}>Пожалуйста ответьте на форму</span>
         <Card className='form-card flex-column align-center justify-center'>
             <Form
                 name="validate_other"
                 {...formItemLayout}
                 onFinish={onFinish}
                 initialValues={{
-                    'input-number': 3,
-                    'checkbox-group': ['A', 'B'],
-                    rate: 3.5,
-                    'color-picker': null,
+                    'switch': false
                 }}
                 style={{ maxWidth: 600 }}
             >
-
                 <Form.Item
-                    name="select"
-                    label="Select"
+                    name="color"
+                    label="Цвет"
                     hasFeedback
-                    rules={[{ required: true, message: 'Please select your country!' }]}
+                    rules={[{ required: true, message: 'Выберите свой любимый цвет!' }]}
                 >
-                    <Select placeholder="Please select a country">
-                        <Option value="china">China</Option>
-                        <Option value="usa">U.S.A</Option>
+                    <Select placeholder="Выберите свой любимый цвет">
+                        <Option value="1">Краный</Option>
+                        <Option value="2">Зеленый</Option>
+                        <Option value="3">Синий</Option>
                     </Select>
                 </Form.Item>
 
                 <Form.Item
-                    name="select-multiple"
-                    label="Select[multiple]"
-                    rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
+                    name="gender"
+                    label="Пол"
+                    hasFeedback
+                    rules={[{ required: true, message: 'Выберите пол!' }]}
                 >
-                    <Select mode="multiple" placeholder="Please select favourite colors">
-                        <Option value="red">Red</Option>
-                        <Option value="green">Green</Option>
-                        <Option value="blue">Blue</Option>
+                    <Select placeholder="Выберите пол">
+                        <Option value="10">Мужской</Option>
+                        <Option value="20">Женский</Option>
                     </Select>
                 </Form.Item>
 
-                <Form.Item label="InputNumber">
-                    <Form.Item name="input-number" noStyle>
-                        <InputNumber min={1} max={10} />
-                    </Form.Item>
-                    <span className="ant-form-text" style={{ marginLeft: 8 }}>
-                        machines
-                    </span>
-                </Form.Item>
-
-                <Form.Item name="switch" label="Switch" valuePropName="checked">
-                    <Switch />
-                </Form.Item>
-
-                <Form.Item name="slider" label="Slider">
-                    <Slider
-                        marks={{
-                            0: 'A',
-                            20: 'B',
-                            40: 'C',
-                            60: 'D',
-                            80: 'E',
-                            100: 'F',
-                        }}
-                    />
-                </Form.Item>
-
-                <Form.Item name="radio-group" label="Radio.Group">
-                    <Radio.Group>
-                        <Radio value="a">item 1</Radio>
-                        <Radio value="b">item 2</Radio>
-                        <Radio value="c">item 3</Radio>
-                    </Radio.Group>
-                </Form.Item>
-
-                <Form.Item
-                    name="radio-button"
-                    label="Radio.Button"
-                    rules={[{ required: true, message: 'Please pick an item!' }]}
-                >
-                    <Radio.Group>
-                        <Radio.Button value="a">item 1</Radio.Button>
-                        <Radio.Button value="b">item 2</Radio.Button>
-                        <Radio.Button value="c">item 3</Radio.Button>
-                    </Radio.Group>
-                </Form.Item>
-
-                <Form.Item name="checkbox-group" label="Checkbox.Group">
-                    <Checkbox.Group>
-                        <Row>
-                            <Col span={8}>
-                                <Checkbox value="A" style={{ lineHeight: '32px' }}>
-                                    A
-                                </Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="B" style={{ lineHeight: '32px' }} disabled>
-                                    B
-                                </Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="C" style={{ lineHeight: '32px' }}>
-                                    C
-                                </Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="D" style={{ lineHeight: '32px' }}>
-                                    D
-                                </Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="E" style={{ lineHeight: '32px' }}>
-                                    E
-                                </Checkbox>
-                            </Col>
-                            <Col span={8}>
-                                <Checkbox value="F" style={{ lineHeight: '32px' }}>
-                                    F
-                                </Checkbox>
-                            </Col>
-                        </Row>
-                    </Checkbox.Group>
-                </Form.Item>
-
-                <Form.Item name="rate" label="Rate">
-                    <Rate />
-                </Form.Item>
-
-                <Form.Item
-                    name="upload"
-                    label="Upload"
-                    valuePropName="fileList"
-                    getValueFromEvent={normFile}
-                    extra="longgggggggggggggggggggggggggggggggggg"
-                >
-                    <Upload name="logo" action="/upload.do" listType="picture">
-                        <Button icon={<UploadOutlined />}>Click to upload</Button>
-                    </Upload>
-                </Form.Item>
-                <Form.Item label="Dragger">
-                    <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="/upload.do">
-                            <p className="ant-upload-drag-icon">
-                                <InboxOutlined />
-                            </p>
-                            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-                        </Upload.Dragger>
-                    </Form.Item>
-                </Form.Item>
-                <Form.Item
-                    name="color-picker"
-                    label="ColorPicker"
-                    rules={[{ required: true, message: 'color is required!' }]}
-                >
-                    <ColorPicker />
+                <Form.Item name="switch" label="Ограничение" valuePropName="checked">
+                    <Switch checkedChildren="18+" unCheckedChildren="<18" />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
