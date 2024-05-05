@@ -1,0 +1,6 @@
+#canvas-container{
+    height: 100dvh;
+    width: 100dvw;
+    position: absolute;
+    z-index: 1;
+}

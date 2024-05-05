@@ -80,7 +80,7 @@ const onFinish = (values) => {
 const FormPage = () => (
     <div className='flex-column'>
         <span className="w-full flex justify-center align-center mb-3" style={{ fontSize: '18px', color: 'white' }}>Пожалуйста ответьте на форму</span>
-        <Card className='form-card flex-column align-center justify-center'>
+        <Card style={{zIndex:10}} className='form-card flex-column align-center justify-center'>
             <Form
                 name="validate_other"
                 {...formItemLayout}

@@ -47,4 +47,5 @@ code {
 }
 
 @import "./styles/card.css";
-@import 'antd-css-utilities/utility.min.css'
+@import 'antd-css-utilities/utility.min.css';
+@import "./styles/canvas-container.css";

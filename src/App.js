@@ -4,12 +4,17 @@ import FormPage from './pages/Form';
 import React from 'react';
 import myImage from './assets/image.png';
 import { ConfigProvider } from 'antd';
+import ThreeScene from './pages/Three';
+
 
 function MyComponent(props, children) {
   return <img height={'100%'} width={"100%"} style={{ overflow: "clip", position: "absolute", top: '0', right: '0' }} src={myImage} alt="My Image" />;
 }
 
 function App() {
+
+
+
   return (
     <ConfigProvider
       theme={{
@@ -33,7 +38,9 @@ function App() {
         <section style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'absolute', width: '100vw', height: '100vh' }}>
           <FormPage />
         </section>
-
+        <div id="scene">
+         <ThreeScene/>
+        </div>
       </div>
     </ConfigProvider>
   );
