@@ -1,0 +1,10 @@
+.form-card{
+    overflow: scroll;
+    width: 60dvw;
+    height: 60vh;  
+    
+    @media (max-width: 768px) {
+        min-width: 95dvw;
+        min-height: 95dvh;
+    }
+}
